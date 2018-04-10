@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.css">
+  <title>My Contacts</title>
+</head>
+<body>
+  <div class="container">
+    <h1 class="center-align">
+      My contacts
+    </h1>
+    <input type="text" id="filterInput"name="" value="" placeholder="enter name">
+    <ul id="names" class="collection width-header">
+      <li class="collection-item">
+        <h5>A</h5>
+        <a href="#">Abla</a>
+      </li>
+      <li class="collection-item">
+        <a href="#">Akouvi</a>
+      </li>
+      <li class="collection-item">
+        <a href="#">Ajo</a>
+      </li>
+      <li class="collection-item">
+        <a href="#">Aney</a>
+      </li>
+      <li class="collection-item">
+        <a href="#">Adam</a>
+      </li>
+      <li class="collection-item">
+        <h5>B</h5>
+        <a href="#">Ben</a>
+      </li>
+      <li class="collection-item">
+        <a href="#">Beth</a>
+      </li>
+      <li class="collection-item">
+        <a href="#">Brad</a>
+      </li>
+      <li class="collection-item">
+        <a href="#">Brian</a>
+      </li>
+      <li class="collection-item">
+        <a href="#">Black</a>
+      </li>
+      <li class="collection-item">
+        <h5>C</h5>
+        <a href="#">Cece</a>
+      </li>
+      <li class="collection-item">
+        <a href="#">cheryl</a>
+      </li>
+      <li class="collection-item">
+        <a href="#">Carol</a>
+      </li>
+      <li class="collection-item">
+        <a href="#">Courtney</a>
+      </li>
+      <li class="collection-item">
+        <a href="#">Cynthia</a>
+      </li>
+    </ul>
+  </div>
+<script>
+  // get the input element
+  let filterInput = document.getElementById('filterInput');
+  // add event listener
+  filterInput.addEventListener('keyup', filterNames);
+  function filterNames(){
+    // get value of input and set to UpperCase
+    let filterValue = document.getElementById('filterInput').value.toUpperCase();
+    // console.log(filterInput);
+
+    // get names ul
+    let ul = document.getElementById('names');
+    // get li from ul querySelectorAll gives you and array of all the li elements
+    let li = ul.querySelectorAll('li.collection-item');
+    // loop through the li
+    for(let i = 0; i < li.length;i++){
+      let a = li[i].getElementsByTagName('a')[0];
+      if(a.innerHTML.toUpperCase().indexOf(filterValue) > -1){
+        // if there is a match, do nothing
+        li[i].style.display = '';
+      }else {
+        // if it is not  a match we want it to disappear
+        li[i].style.display = 'none';
+      }
+    }
+  }
+
+</script>
+</body>
+</html>
